@@ -12,7 +12,7 @@ const News = (props) => {
   const [loading, setLoading] = useState(true)
   const [page, setpage] = useState(1)
   const [totalResults, settotalResults] = useState(0)
-  //  document.title = `${props.category.toUpperCase()} - NewsMonkey`;
+  
 
 
 
@@ -31,18 +31,10 @@ const News = (props) => {
   }
 
   useEffect(() => {
+    document.title = `${props.category.toUpperCase()} - NewsMonkey`;
     updateNews();
     // eslint-disable-next-line
   }, [])
-  // const handlePreviousClick = async () => {
-  //   setpage( page - 1 )
-  //   updateNews();
-  // }
-
-  // const handleNextClick = async () => {
-  //   setpage( page + 1);
-  //   updateNews();
-  // }
 
   const fetchMoreData = async () => {
     let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page + 1}&pageSize=${props.pageSize}`;
